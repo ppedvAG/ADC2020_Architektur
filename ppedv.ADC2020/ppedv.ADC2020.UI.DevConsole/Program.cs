@@ -17,7 +17,7 @@ namespace ppedv.ADC2020.UI.DevConsole
             var core = new Core();
 
             if (core.Repository.Query<Auto>().Count() == 0)
-                core.CreateDemoDaten(); have a numeric common
+                core.CreateDemoDaten();
 
             foreach (var a in core.Repository.Query<Auto>().OrderBy(x => x.Created.Year).ThenBy(x => x.Farbe).ToList())
             {
@@ -29,7 +29,7 @@ namespace ppedv.ADC2020.UI.DevConsole
             }
 
             Console.WriteLine("*********");
-            foreach (var k in core.GetAllKundenDieSeitXTagenNichtMehrGebuchtHaben(5, DateTime.Now))
+            foreach (var k in core.GetAllKundenDieSeitXTagenNichtMehrGebuchtHaben(5,DateTime.Now))
             {
                 Console.WriteLine(k.Name);
             }
