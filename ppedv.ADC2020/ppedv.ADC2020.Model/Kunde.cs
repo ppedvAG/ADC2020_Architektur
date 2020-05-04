@@ -7,6 +7,6 @@ namespace ppedv.ADC2020.Model
     {
         public string Name { get; set; }
         public DateTime GebDatum { get; set; }
-        public ICollection<Vermietung> Vermietungen { get; set; } = new HashSet<Vermietung>();
+        public virtual ICollection<Vermietung> Vermietungen { get; set; } = new HashSet<Vermietung>();
     }
 }

@@ -9,6 +9,6 @@ namespace ppedv.ADC2020.Model
         public int PS { get; set; }
         public string Farbe { get; set; }
         public virtual Standort Standort { get; set; }
-        public ICollection<Vermietung> Vermietungen { get; set; } = new HashSet<Vermietung>();
+        public virtual ICollection<Vermietung> Vermietungen { get; set; } = new HashSet<Vermietung>();
     }
 }

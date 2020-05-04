@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="29.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ppedv.ADC2020.Data.EF\ppedv.ADC2020.Data.EF.csproj" />
     <ProjectReference Include="..\ppedv.ADC2020.Model\ppedv.ADC2020.Model.csproj" />
   </ItemGroup>
