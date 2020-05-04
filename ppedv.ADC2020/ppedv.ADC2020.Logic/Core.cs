@@ -3,6 +3,9 @@ using ppedv.ADC2020.Data.EF;
 using ppedv.ADC2020.Model;
 using ppedv.ADC2020.Model.Contracts;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ppedv.ADC2020.Logic
 {
@@ -17,6 +20,15 @@ namespace ppedv.ADC2020.Logic
 
         public Core() : this(new Data.EF.EfRepository())
         { }
+
+        public IEnumerable<Kunde> GetAllKundenDieSeitXTagenNichtMehrGebuchtHaben(int tage, DateTime heute)
+        {
+            if (tage <= 0)
+                throw new ArgumentException("doof!");
+
+            return Repository.Query<Kunde>().Where(x => x.Vermietungen.Count() > 0 && (heute - x.Vermietungen.OrderByDescending(y => y.Ende).FirstOrDefault().Ende).TotalDays > tage);
+        }
+
 
         public void CreateDemoDaten()
         {

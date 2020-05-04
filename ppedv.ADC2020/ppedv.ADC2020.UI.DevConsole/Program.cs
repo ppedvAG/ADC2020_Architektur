@@ -17,7 +17,7 @@ namespace ppedv.ADC2020.UI.DevConsole
             var core = new Core();
 
             if (core.Repository.Query<Auto>().Count() == 0)
-                core.CreateDemoDaten();
+                core.CreateDemoDaten(); have a numeric common
 
             foreach (var a in core.Repository.Query<Auto>().OrderBy(x => x.Created.Year).ThenBy(x => x.Farbe).ToList())
             {
@@ -26,6 +26,12 @@ namespace ppedv.ADC2020.UI.DevConsole
                 {
                     Console.WriteLine($"\t{vm.Start:D}-{vm.Ende:D} {vm.Kunde.Name}");
                 }
+            }
+
+            Console.WriteLine("*********");
+            foreach (var k in core.GetAllKundenDieSeitXTagenNichtMehrGebuchtHaben(5, DateTime.Now))
+            {
+                Console.WriteLine(k.Name);
             }
 
             Console.WriteLine("Ende");
