@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="ppedv.ADC2020.UI.WPF.View.AutoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ppedv.ADC2020.UI.WPF.View"
+             xmlns:vm="clr-namespace:ppedv.ADC2020.UI.WPF.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:AutoViewModel/>
+    </UserControl.DataContext>
+    <DockPanel>
+        <DataGrid SelectedItem="{Binding SelectedAuto}" ItemsSource="{Binding AutoListe}" Width="200"/>
+        <WrapPanel DockPanel.Dock="Top" Margin="20">
+            <Button Command="{Binding SaveCommand}">Speichern</Button>
+            <Button Command="{Binding NewCommand}">Neu</Button>
+            <Button>Löschen</Button>
+            <Button>Vernichten</Button>
+            <Button>Vergraben</Button>
+        </WrapPanel>
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label>Letzer Kunde:</Label>
+            <Label Grid.Column="1" Content="{Binding LetzerKunde}"/>
+            <Label Grid.Row="1">Hersteller</Label>
+            <TextBox Grid.Row="1" Text="{Binding SelectedAuto.Hersteller}" Grid.Column="1"/>
+            <Label Grid.Row="2">Modell</Label>
+            <TextBox Grid.Row="2" Text="{Binding SelectedAuto.Modell}" Grid.Column="1"/>
+            <Label Grid.Row="3">Farbe</Label>
+            <TextBox Grid.Row="3" Text="{Binding SelectedAuto.Farbe}" Grid.Column="1"/>
+            <Label Grid.Row="4">PS</Label>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedAuto.PS}"/>
+        </Grid>
+    </DockPanel>
+</UserControl>

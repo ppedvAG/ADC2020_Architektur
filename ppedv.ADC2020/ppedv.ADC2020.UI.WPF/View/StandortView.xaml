@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ppedv.ADC2020.UI.WPF.View.StandortView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ppedv.ADC2020.UI.WPF.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Storyboard x:Key="OnMouseEnter1" AutoReverse="True">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="7.235"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="31.145"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="button">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFDDDDDD"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FFD33B3B"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="button">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Button x:Name="button" Content="Button" Height="64.666" Margin="144.667,111.667,303.333,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        <Button.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Button.RenderTransform>
+    </Button>
+</UserControl>
